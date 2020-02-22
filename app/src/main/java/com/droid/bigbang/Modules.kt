@@ -11,6 +11,7 @@ import org.koin.dsl.module
 // GLOBAL DEPENDENCIES
 val applicationModule = module {
     single { Gson() }
+    factory { PhotoViewController() }
     factory<DataRepository> { DataRepositoryImpl() }
 }
 
