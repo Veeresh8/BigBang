@@ -3,6 +3,7 @@ package com.droid.bigbang.models
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
+import java.lang.Exception
 
 @Parcelize
 data class Photo (val copyright: String?,
@@ -16,5 +17,5 @@ data class Photo (val copyright: String?,
 
 sealed class PhotoParseResult {
     class PhotosList(val photoList: List<Photo>) : PhotoParseResult()
-    class PhotoParseException(val message: String) : PhotoParseResult()
+    class PhotoParseException(val parseException: Exception) : PhotoParseResult()
 }

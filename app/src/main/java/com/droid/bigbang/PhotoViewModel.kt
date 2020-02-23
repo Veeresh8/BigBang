@@ -7,9 +7,8 @@ import com.droid.bigbang.data.DataRepository
 import com.droid.bigbang.models.PhotoParseResult
 
 class PhotoViewModel constructor(private val dataRepository: DataRepository): ViewModel() {
-    private val photoLiveData = MutableLiveData<PhotoParseResult>()
 
     fun fetchPhotos(path: Int): LiveData<PhotoParseResult> {
-        return dataRepository.getPhotos(path, photoLiveData)
+        return dataRepository.getPhotos(path)
     }
 }

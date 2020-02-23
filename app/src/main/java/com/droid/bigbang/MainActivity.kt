@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun handleError(exception: PhotoParseResult.PhotoParseException) {
-        Timber.e("Exception parsing resources ${exception.message}")
+        Timber.e("Exception parsing resources ${exception.parseException.message}")
         photoView.gone()
         errorLayout.visible()
         tvErrorMessage.text = resources.getString(R.string.error_message)
