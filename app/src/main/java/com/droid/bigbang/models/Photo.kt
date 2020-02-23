@@ -12,6 +12,6 @@ data class Photo (val copyright: String,
                   val url: String)
 
 sealed class PhotoParseResult {
-    class Photo(val photoList: List<Photo>) : PhotoParseResult()
+    class PhotosList(val photoList: List<Photo>) : PhotoParseResult()
     class PhotoParseException(val message: String) : PhotoParseResult()
 }
