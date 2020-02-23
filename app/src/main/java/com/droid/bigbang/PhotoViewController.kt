@@ -18,7 +18,7 @@ class PhotoViewController : AsyncEpoxyController() {
                 id(currentPhoto.url)
                 photo(currentPhoto)
                     .clickListener { model, parentView, clickedView, position ->
-                        DetailsActivity.launchWith(clickedView.context, position,
+                        PhotoDetailsActivity.launchWith(clickedView.context, position,
                             photoList.toMutableList() as ArrayList<Photo>
                         )
                     }

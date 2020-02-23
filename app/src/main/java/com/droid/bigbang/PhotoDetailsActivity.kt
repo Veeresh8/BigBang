@@ -5,14 +5,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
-import android.os.Handler
 import com.droid.bigbang.models.Photo
 import kotlinx.android.synthetic.main.activity_details.*
-import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 import timber.log.Timber
 
-class DetailsActivity : AppCompatActivity() {
+class PhotoDetailsActivity : AppCompatActivity() {
 
     private val photoDetailViewController: PhotoDetailViewController by inject()
 
@@ -22,7 +20,7 @@ class DetailsActivity : AppCompatActivity() {
         const val ARG_PHOTO_LIST = "arg_data"
 
         fun launchWith(context: Context, position: Int, photos: ArrayList<Photo>) {
-            val intent = Intent(context, DetailsActivity::class.java)
+            val intent = Intent(context, PhotoDetailsActivity::class.java)
             intent.putExtra(POSITION, position)
             intent.putParcelableArrayListExtra(ARG_PHOTO_LIST, photos)
             context.startActivity(intent)
