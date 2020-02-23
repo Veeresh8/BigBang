@@ -3,7 +3,6 @@ package com.droid.bigbang
 import androidx.lifecycle.MutableLiveData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.internal.inject.InstrumentationContext
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,15 +16,11 @@ import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
 import org.hamcrest.CoreMatchers.not
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.koin.core.context.loadKoinModules
-import org.koin.core.context.startKoin
-import org.koin.core.context.stopKoin
 import org.koin.dsl.module
-import org.koin.test.AutoCloseKoinTest
 import org.koin.test.KoinTest
 import java.io.FileNotFoundException
 
@@ -36,6 +31,10 @@ class MainActivityTest : KoinTest {
     @Rule
     @JvmField
     val activity = ActivityTestRule<MainActivity>(MainActivity::class.java, false, false)
+
+    @Rule
+    @JvmField
+    val detailsActivity = ActivityTestRule<PhotoDetailsActivity>(PhotoDetailsActivity::class.java, false, false)
 
     @Before
     fun setup() {
@@ -101,4 +100,17 @@ class MainActivityTest : KoinTest {
         onView(withId(R.id.photoView)).check(RecyclerViewItemCountAssertion(photoList.size))
 
     }
+
+    @Test
+    fun shouldShowArgumentErrorInPhotoDetail() {
+        detailsActivity.launchActivity(null)
+
+        onView(withId(R.id.photoArgErrorLayout))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.photoDetailView))
+            .check(matches(not(isDisplayed())))
+    }
+
+
 }
