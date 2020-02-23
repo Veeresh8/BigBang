@@ -13,6 +13,7 @@ import org.koin.dsl.module
 val applicationModule = module {
     single { Gson() }
     factory { PhotoViewController() }
+    factory { PhotoDetailViewController() }
     factory<DataRepository> { DataRepositoryImpl(androidContext(), get()) }
 }
 
