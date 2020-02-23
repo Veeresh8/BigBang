@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
     <com.airbnb.epoxy.EpoxyRecyclerView
@@ -11,8 +12,8 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:clipChildren="false"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"/>
+        android:padding="16dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
 
     <include layout="@layout/retry_layout"/>
 
