@@ -14,6 +14,7 @@ fun View.gone() {
 
 fun getPhotoMeta(photo: Photo): String {
     val meta = StringBuilder()
+    meta.append(photo.explanation)
     return meta.toString()
 }
 
