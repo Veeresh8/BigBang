@@ -1,9 +1,11 @@
+@file:Suppress("UNUSED_ANONYMOUS_PARAMETER")
+
 package com.droid.bigbang
 
 import com.airbnb.epoxy.AsyncEpoxyController
 import com.droid.bigbang.models.Photo
 
-class PhotoViewController: AsyncEpoxyController() {
+class PhotoViewController : AsyncEpoxyController() {
     var photoList: List<Photo> = emptyList()
         set(value) {
             field = value
@@ -12,10 +14,15 @@ class PhotoViewController: AsyncEpoxyController() {
 
     override fun buildModels() {
         photoList.forEach { currentPhoto ->
-           photoView {
-               id(currentPhoto.url)
-               photo(currentPhoto)
-           }
+            photoView {
+                id(currentPhoto.url)
+                photo(currentPhoto)
+                    .clickListener { model, parentView, clickedView, position ->
+                        DetailsActivity.launchWith(clickedView.context, position,
+                            photoList.toMutableList() as ArrayList<Photo>
+                        )
+                    }
+            }
         }
     }
 }
