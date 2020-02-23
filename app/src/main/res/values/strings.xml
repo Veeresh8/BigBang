@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BigBang</string>
     <string name="retry">retry</string>
+    <string name="error_message">Hmm, something went wrong connecting with the universe</string>
 </resources>
