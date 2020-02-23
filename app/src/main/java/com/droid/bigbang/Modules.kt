@@ -4,6 +4,8 @@ package com.droid.bigbang
 
 import com.droid.bigbang.data.DataRepository
 import com.droid.bigbang.data.DataRepositoryImpl
+import com.droid.bigbang.epoxyControllers.PhotoDetailViewController
+import com.droid.bigbang.epoxyControllers.PhotoViewController
 import com.google.gson.Gson
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel

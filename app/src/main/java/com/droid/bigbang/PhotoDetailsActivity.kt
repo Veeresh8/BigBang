@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
+import com.droid.bigbang.epoxyControllers.PhotoDetailViewController
 import com.droid.bigbang.models.Photo
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.photo_arg_error_layout.*

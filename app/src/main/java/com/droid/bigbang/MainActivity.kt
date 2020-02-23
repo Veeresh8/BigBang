@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.droid.bigbang.epoxyControllers.PhotoViewController
 import com.droid.bigbang.models.PhotoParseResult
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.retry_layout.*

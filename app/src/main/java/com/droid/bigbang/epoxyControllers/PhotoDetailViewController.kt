@@ -1,9 +1,10 @@
 @file:Suppress("UNUSED_ANONYMOUS_PARAMETER")
 
-package com.droid.bigbang
+package com.droid.bigbang.epoxyControllers
 
 import com.airbnb.epoxy.AsyncEpoxyController
 import com.airbnb.epoxy.carousel
+import com.droid.bigbang.PhotoDetailView_
 import com.droid.bigbang.models.Photo
 
 class PhotoDetailViewController : AsyncEpoxyController() {
