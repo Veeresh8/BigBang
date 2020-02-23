@@ -5,6 +5,7 @@ package com.droid.bigbang
 import com.droid.bigbang.data.DataRepository
 import com.droid.bigbang.data.DataRepositoryImpl
 import com.google.gson.Gson
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -12,7 +13,7 @@ import org.koin.dsl.module
 val applicationModule = module {
     single { Gson() }
     factory { PhotoViewController() }
-    factory<DataRepository> { DataRepositoryImpl() }
+    factory<DataRepository> { DataRepositoryImpl(androidContext(), get()) }
 }
 
 // VIEW-MODEL
