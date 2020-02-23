@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
+import android.os.Handler
 import com.droid.bigbang.models.Photo
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -13,7 +14,7 @@ import timber.log.Timber
 
 class DetailsActivity : AppCompatActivity() {
 
-    private val photoViewController: PhotoViewController by inject()
+    private val photoDetailViewController: PhotoDetailViewController by inject()
 
     companion object {
 
@@ -39,9 +40,11 @@ class DetailsActivity : AppCompatActivity() {
         val position = intent.getIntExtra(POSITION, 0)
         val photosList = intent.getParcelableArrayListExtra<Photo>(ARG_PHOTO_LIST)
         Timber.i("$position || ${photosList?.size}")
+        photoDetailViewController.scrollPosition = position
+        photoDetailViewController.photoList = photosList
     }
 
     private fun initRecyclerView() {
-        photoDetailView.setController(photoViewController)
+        photoDetailView.setController(photoDetailViewController)
     }
 }
