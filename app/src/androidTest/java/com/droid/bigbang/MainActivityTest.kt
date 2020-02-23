@@ -23,6 +23,9 @@ import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
 import org.koin.test.KoinTest
 import java.io.FileNotFoundException
+import android.content.Intent
+
+
 
 class MainActivityTest : KoinTest {
 
@@ -109,6 +112,27 @@ class MainActivityTest : KoinTest {
             .check(matches(isDisplayed()))
 
         onView(withId(R.id.photoDetailView))
+            .check(matches(not(isDisplayed())))
+    }
+
+    @Test
+    fun photoDetailsSuccessfulLaunch() {
+        val targetContext = InstrumentationRegistry.getInstrumentation().targetContext
+
+        val photosJSON = targetContext.resources.openRawResource(R.raw.data).bufferedReader()
+            .use { it.readText() }
+        val photoList = Gson().fromJson(photosJSON, Array<Photo>::class.java).toList()
+
+        val intent = Intent()
+        intent.putExtra(PhotoDetailsActivity.POSITION, 0)
+        intent.putParcelableArrayListExtra(PhotoDetailsActivity.ARG_PHOTO_LIST, photoList as ArrayList<Photo>)
+
+        detailsActivity.launchActivity(intent)
+
+        onView(withId(R.id.photoDetailView))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.photoArgErrorLayout))
             .check(matches(not(isDisplayed())))
     }
 
