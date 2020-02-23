@@ -16,10 +16,16 @@ abstract class PhotoView: EpoxyModelWithHolder<PhotoView.Holder>() {
     @EpoxyAttribute
     lateinit var photo: Photo
 
+    @EpoxyAttribute(EpoxyAttribute.Option.DoNotHash)
+    lateinit var clickListener: View.OnClickListener
+
     override fun bind(holder: Holder) {
         super.bind(holder)
         with(photo) {
+            holder.photoView.tag = this
+
             Glide.with(holder.photoView.context).load(this.url).into(holder.photoView)
+            holder.photoView.setOnClickListener(clickListener)
         }
     }
 
