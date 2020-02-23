@@ -21,15 +21,18 @@ abstract class PhotoDetailView: EpoxyModelWithHolder<PhotoDetailView.Holder>() {
         with(photo) {
             Glide.with(holder.photoView.context).load(this.url).placeholder(R.mipmap.ic_launcher).into(holder.photoView)
             holder.photoMeta.text = getPhotoMeta(this)
+            holder.photoTitle.text = title
         }
     }
 
     class Holder : EpoxyHolder() {
         lateinit var photoView: ImageView
         lateinit var photoMeta: TextView
+        lateinit var photoTitle: TextView
         override fun bindView(itemView: View) {
             photoView = itemView.findViewById(R.id.ivPhotoDetailView)
             photoMeta = itemView.findViewById(R.id.tvPhotoMetadata)
+            photoTitle = itemView.findViewById(R.id.tvPhotoTitle)
         }
     }
 }

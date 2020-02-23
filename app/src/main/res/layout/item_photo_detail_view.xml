@@ -12,16 +12,27 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"/>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvPhotoTitle"
+            tools:text="Burning Star"
+            android:fontFamily="sans-serif-thin"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <TextView
             android:id="@+id/tvPhotoMetadata"
             tools:text="Some info here"
+            android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-thin"
             android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>
