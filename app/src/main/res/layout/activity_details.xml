@@ -15,4 +15,6 @@
         android:clipChildren="false"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
+    <include layout="@layout/photo_arg_error_layout"/>
+
 </RelativeLayout>
