@@ -1,7 +1,10 @@
 package com.droid.bigbang.models
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Photo (val copyright: String,
                   val date: String,
                   val explanation: String,
@@ -9,7 +12,7 @@ data class Photo (val copyright: String,
                   @SerializedName("media_type") val mediaType: String,
                   @SerializedName("service_version") val serviceVersion: String,
                   val title: String,
-                  val url: String)
+                  val url: String): Parcelable
 
 sealed class PhotoParseResult {
     class PhotosList(val photoList: List<Photo>) : PhotoParseResult()
